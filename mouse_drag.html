@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Events</title>
+
+  <style>
+
+    #canvas {
+      border: 1px black solid;
+    }
+
+  </style>
+
+</head>
+<body>
+
+
+<P>Drag the mouse on the canvas</P>
+<label for="mouse-drag-color">Choose a color: </label>
+<input id="mouse-drag-color" type="color"> 
+<br><br>
+<label for="radius">Modify the radius: (1 to 50)</label>
+<input id="radius" type="range" min="1" max="50" step="1" value="25">
+<br><br>
+<canvas id="canvas" height="400" width="400"></canvas>
+
+<script>
+
+  let canvas = document.querySelector('#canvas')
+  let context = canvas.getContext('2d')
+  let color = document.querySelector('#mouse-drag-color')
+  let radius = document.querySelector('#radius')
+  
+  // Keep track of whether the mouse button has been pressed down or not.
+  // Think of this as whether the user is drawing or not, is their brush on the canvas?
+  let mousedown = false 
+
+  canvas.addEventListener('mousedown', function() {
+    mousedown = true
+  })
+
+  canvas.addEventListener('mouseup', function() {
+    mousedown = false 
+  })
+
+  // If mouse leaves the canvas then stop drawing
+  canvas.addEventListener('mouseout', function() {
+    mousedown = false
+  })
+
+  canvas.addEventListener('mousemove', function() {
+
+    // If the mouse button is not pressed down, do not draw.
+    if (!mousedown) { return }
+
+    // event is a built-in variable, contains the event that triggered this function
+    // get the x, y location of the event
+    let x = event.offsetX
+    let y = event.offsetY   //offsetX, offsetY, may not work in older browsers
+
+    //Draw a filled rectangle centered under the mouse click
+    //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
+    context.beginPath()
+    context.arc(x, y, radius.value, 0, 6.3)
+    context.strokeStyle = color.value
+    context.stroke()
+    //context.fillRect(x-5, y-5, 10, 10)
+
+  })
+
+</script>
+
+</body>
+</html>

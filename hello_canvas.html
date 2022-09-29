@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            canvas {
+                border: 1px black solid
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="canvas" height="500" width="700"></canvas>
+        <script>
+            let canvas = document.querySelector('#canvas')
+            let context = canvas.getContext('2d')
+            
+            context.fillStyle = 'black'
+            context.font = '50px Courier'
+            context.fillText('Hello World', 50, 50)
+
+            context.strokeText('This is some more text', 5, 200)
+
+            context.beginPath()
+            context.arc(250,250,200,0,6.3)
+            context.strokeStyle = 'blue'
+            context.lineWidth = 15
+            context.stroke()
+
+            context.beginPath()
+            context.moveTo(10,10)
+            context.lineTo(485,485)
+            context.lineTo(400,30)
+            context.lineTo(10,10)
+            context.lineTo(485,485)
+
+            context.lineWidth = 30
+            context.strokeStyle = 'purple'
+            context.stroke()
+
+            context.beginPath()
+            context.moveTo(250,250)
+            context.lineTo(250,500)
+            context.lineWidth = 5
+            context.strokeStyle = 'yellow'
+            context.stroke()
+
+            context.fillRect(20, 20, 100, 100)
+            context.strokeRect(20, 330, 100, 150)
+
+            context.fillStyle = 'red'
+            context.fillRect(380,20,100,100)
+            context.strokeStyle = 'green'
+            context.lineWidth = 20
+            context.strokeRect(380,430,100,50)
+
+            context.fillStyle = 'yellow'
+            context.fillRect(175,175,150,150)
+            context.strokeStyle = 'blue'
+            context.lineWidth = 5
+            context.strokeRect(175,175,150,150)
+
+        </script>
+    </body>
+</html>
