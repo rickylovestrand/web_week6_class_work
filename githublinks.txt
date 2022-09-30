@@ -1,0 +1,6 @@
+Repository:
+https://github.com/rickylovestrand/web_week6_class_work
+
+The two lab files: 
+https://rickylovestrand.github.io/web_week6_class_work/mouse_drag.html
+https://rickylovestrand.github.io/web_week6_class_work/longest_us_bridges.html
