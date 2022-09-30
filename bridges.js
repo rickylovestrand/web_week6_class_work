@@ -40,6 +40,8 @@ let bridges = [
     }
 ]
 
+// Since the property names are not the same between the two different data sets (US bridges vs world bridges)
+// create variables to use later for drawing the markers and the chart
 let bridgeNameProperty = ''
 let spanProperty = ''
 let locationProperty = ''
